@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.pinch_hitter_homelearn.auth.LoginActivity
 
 class splashActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class splashActivity : AppCompatActivity() {
 
         //딜레이 선언
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java)) // 화면 넘기기 Intent
+            startActivity(Intent(this, LoginActivity::class.java)) // 화면 넘기기 Intent
             finish()
         }, splashTime)
     }
