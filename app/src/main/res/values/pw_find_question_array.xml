@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pw_find_array">
+        <item>질문1</item>
+        <item>질문2</item>
+        <item>질문3</item>
+        <item>질문4</item>
+        <item>질문5</item>
+    </string-array>
+</resources>
