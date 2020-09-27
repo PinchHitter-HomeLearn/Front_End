@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="pw_find_array">
-        <item>질문1</item>
-        <item>질문2</item>
-        <item>질문3</item>
-        <item>질문4</item>
-        <item>질문5</item>
+        <item>자신의 보물 제 1호는?</item>
+        <item>아버지의 성함은?</item>
+        <item>어머니의 성함은?</item>
+        <item>내가 가장 존경하는 인물은?</item>
+        <item>나의 별명은?</item>
     </string-array>
 </resources>

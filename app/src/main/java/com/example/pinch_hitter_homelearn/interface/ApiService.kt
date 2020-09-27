@@ -14,7 +14,13 @@ interface ApiService {
             @Field("password") password:String
     ) : Call<LoginClass> // Get Data
 
-
+    @FormUrlEncoded
+    @POST("members")
+    fun signUpApi(
+            @Field("member{}") member:String,
+            @Field("hintId") hintId:String,
+            @Field("answer") answer:String
+    ) : Call<SignUpClass> // Get Data
 
 
 }
