@@ -20,6 +20,11 @@ class LoginActivity : AppCompatActivity() {
             val signUpIntent = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(signUpIntent)
         }
+
+        find_id_btn.setOnClickListener {
+            val signUpIntent = Intent(this@LoginActivity, Find_PW_Activity::class.java)
+            startActivity(signUpIntent)
+        }
     }
 
     // Declare an Retrofit object

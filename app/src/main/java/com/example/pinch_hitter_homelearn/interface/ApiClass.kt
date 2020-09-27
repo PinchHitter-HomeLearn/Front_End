@@ -6,3 +6,7 @@ data class LoginClass(
     var msg : String,
     var token : String
 )
+
+data class SignUpClass(
+    var msg : String
+)

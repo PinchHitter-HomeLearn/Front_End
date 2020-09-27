@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">대타 홈런</string>
     <string name="sign_up"><u>회원가입</u></string>
-    <string name="find_id"><u>계정찾기</u></string>
+    <string name="find_pw"><u>비번찾기</u></string>
 </resources>
