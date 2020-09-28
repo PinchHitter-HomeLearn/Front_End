@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".auth.Find_PW_Activity">
 
-
     <TextView
         android:id="@+id/password_page"
         android:layout_width="wrap_content"

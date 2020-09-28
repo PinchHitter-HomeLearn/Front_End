@@ -1,4 +1,5 @@
 package com.example.pinch_hitter_homelearn.`interface`
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.*
@@ -15,10 +16,10 @@ interface ApiService {
     ) : Call<LoginClass> // Get Data
 
     @FormUrlEncoded
-    @POST("members")
+    @POST("/members")
     fun signUpApi(
-            @Field("member{}") member:String,
-            @Field("hintId") hintId:String,
+            @Field("member{}") member:JSONObject,
+            @Field("hintId") hintId:Int,
             @Field("answer") answer:String
     ) : Call<SignUpClass> // Get Data
 

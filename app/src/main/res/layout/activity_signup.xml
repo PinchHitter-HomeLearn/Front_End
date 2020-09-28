@@ -265,8 +265,9 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/signUpBtn"
             android:background="#B6B6B6"
-            android:text="다음으로"
+            android:text="회원가입"
             android:textSize="25sp"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
