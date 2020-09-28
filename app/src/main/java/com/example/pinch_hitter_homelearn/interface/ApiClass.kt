@@ -1,5 +1,8 @@
 package com.example.pinch_hitter_homelearn.`interface`
 
+import com.google.gson.JsonObject
+import org.json.JSONObject
+
 
 // Get Data Class
 data class LoginClass(
@@ -8,5 +11,19 @@ data class LoginClass(
 )
 
 data class SignUpClass(
-    var msg : String
+    var id : String,
+    var loginId : String,
+    var passWord : String,
+    var sns : String,
+    var name : String,
+    var birthDay : String,
+    var sex : String,
+    var phone: String,
+    var branchId : String,
+    var role : JSONObject,
+    var profileImage : String,
+    var lastLoginDate : String,
+    var createdDate : String,
+    var updatedDate : String,
+    var deletedDate : String
 )
