@@ -52,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
             role.put("id", 1)
 
             if(user_email != null && id_check == true && user_password != null && pw_find_answer != null && user_name != null && birth_day != null && sex != null) {
-//                var sex2 = resources.getResourceEntryName(sex)
+                var gender = resources.getResourceEntryName(sex)
 
                 val memberObject = JSONObject()
                 memberObject.put("loginId", email)
@@ -60,9 +60,9 @@ class SignUpActivity : AppCompatActivity() {
                 memberObject.put("sns", "None")
                 memberObject.put("name", name)
                 memberObject.put("birthDay", birth)
-                memberObject.put("sex", "male")
+                memberObject.put("sex", gender)
                 memberObject.put("phone", phoneNum)
-                memberObject.put("branchId", 1)
+                memberObject.put("branchId", branch)
                 memberObject.put("role", role)
 
                 println(memberObject)

@@ -12,7 +12,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.7">
+        android:layout_gravity="center"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/back_btn"
@@ -85,7 +86,6 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             tools:ignore="NotSibling" />
-
 
         <EditText
             android:layout_marginLeft="23dp"
@@ -209,12 +209,14 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/male"
                 android:text="남자"
                 android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"/>
 
             <RadioButton
+                android:id="@+id/female"
                 android:layout_marginLeft="10dp"
                 android:text="여자"
                 android:textSize="20dp"
