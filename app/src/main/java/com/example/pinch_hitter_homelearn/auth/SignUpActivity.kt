@@ -39,8 +39,8 @@ class SignUpActivity : AppCompatActivity() {
         hint_id = hint_id +1
         signUpBtn.setOnClickListener {
 
-            var email = user_email.text.toString()
-            var pw = user_password.text.toString()
+            var email = user_id_input.text.toString()
+            var pw = user_pw_input.text.toString()
             var find_asnwer = pw_find_answer.text.toString()
             var birth = birth_day.text.toString()
             var name = user_name.text.toString()
