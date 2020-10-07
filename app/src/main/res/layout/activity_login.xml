@@ -24,9 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="300dp"
+        android:fontFamily="@font/notosanskrregular"
         android:text="아이디"
         android:textColor="#000000"
-        android:textSize="18dp"
+        android:textSize="15dp"
+        android:elegantTextHeight="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,9 +37,10 @@
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="365dp"
         android:backgroundTint="#4D000000"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:hint="example@xxxxx.com"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/textview"
@@ -48,10 +51,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="비밀번호"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:textColor="#000000"
-        android:textSize="18dp"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_id" />
 
@@ -60,9 +65,10 @@
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="10dp"
         android:backgroundTint="#4D000000"
         android:hint="숫자, 영문 조합 최소 6자 이상"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview2" />
@@ -75,6 +81,8 @@
         android:layout_marginTop="470dp"
         android:onClick="find_id"
         android:text="@string/find_pw"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:textSize="12sp"
         android:textColor="#4D000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +98,8 @@
         android:onClick="sign_up"
         android:text="@string/sign_up"
         android:textSize="12sp"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:textColor="#4D000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -108,14 +118,16 @@
     <Button
         android:id="@+id/login_btn"
         android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="36dp"
+        android:layout_height="45dp"
         android:layout_marginTop="510dp"
         android:text="로그인"
         android:textSize="19sp"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:background="@drawable/login_btn_custom"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -124,6 +136,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
+        android:fontFamily="@font/notosanskrregular"
+        android:elegantTextHeight="true"
         android:textSize="15sp"
         android:layout_marginTop="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -132,32 +146,32 @@
 
     <ImageView
         app:layout_constraintTop_toBottomOf="@+id/sns_login"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="130dp"
+        app:layout_constraintRight_toLeftOf="@id/google_login"
+        android:layout_marginRight="35dp"
         android:layout_marginTop="20dp"
         android:id="@+id/kakao_login"
         android:src="@drawable/kakao"
-        android:layout_width="30dp"
-        android:layout_height="30dp"/>
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
 
     <ImageView
         app:layout_constraintTop_toBottomOf="@+id/sns_login"
-        app:layout_constraintLeft_toRightOf="@id/kakao_login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="25dp"
         android:id="@+id/google_login"
         android:src="@drawable/google"
-        android:layout_width="30dp"
-        android:layout_height="30dp"/>
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
 
     <ImageView
         app:layout_constraintTop_toBottomOf="@id/sns_login"
         app:layout_constraintLeft_toRightOf="@id/google_login"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="35dp"
         android:id="@+id/facebook_login"
         android:src="@drawable/facebook"
-        android:layout_width="30dp"
-        android:layout_height="30dp"/>
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

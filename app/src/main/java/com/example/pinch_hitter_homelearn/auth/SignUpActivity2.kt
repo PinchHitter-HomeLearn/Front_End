@@ -1,11 +1,17 @@
 package com.example.pinch_hitter_homelearn.auth
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.widget.Checkable
 import android.widget.Toast
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.`interface`.SignUpClass
+import kotlinx.android.synthetic.main.activity_sign_up2.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import org.json.JSONObject
 import retrofit2.Call
@@ -13,10 +19,85 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SignUpActivity2 : AppCompatActivity() {
+
+    var user_email = ""
+    var user_password = ""
+    var user_question = ""
+    var user_answer = ""
+    var user_name_flag = false
+    var user_phone_flag = false
+    var gender = ""
+
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up2)
 
+
+        user_email = intent.getStringExtra("email").toString()
+        user_password = intent.getStringExtra("pw").toString()
+        user_question = intent.getStringExtra("question").toString()
+        user_answer = intent.getStringExtra("findAnswer").toString()
+
+        Gender_male.setOnClickListener {
+            Gender_male.setBackgroundResource(R.drawable.gender_check)
+            Gender_male.setTextColor(Color.parseColor("#EB5757"))
+
+            Gender_female.setBackgroundResource(R.drawable.gender_uncheck)
+            Gender_female.setTextColor(Color.parseColor("#C4C4C4"))
+
+            gender = "male"
+        }
+
+        Gender_female.setOnClickListener {
+            Gender_male.setBackgroundResource(R.drawable.gender_uncheck)
+            Gender_male.setTextColor(Color.parseColor("#C4C4C4"))
+
+            Gender_female.setBackgroundResource(R.drawable.gender_check)
+            Gender_female.setTextColor(Color.parseColor("#EB5757"))
+
+            gender = "female"
+        }
+
+        user_name_input.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
+                if (count == 0) {
+                    user_name_flag = false
+                } else if (count > 0) {
+                    user_name_flag = true
+                }
+            }
+        })
+
+        user_phone_input.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
+                if (count == 0) {
+                    user_phone_flag = false
+                } else if (count > 0) {
+                    user_phone_flag = true
+                }
+            }
+        })
+
+        user_useinfo_checkbox.setOnClickListener {
+            if(user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
+                sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
+            } else {
+                sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
+            }
+        }
 
 //        var role = JSONObject()
 //        role.put("id", 1)

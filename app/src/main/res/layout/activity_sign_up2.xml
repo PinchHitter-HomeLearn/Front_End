@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_Position"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:background="#FFFFFF"
         android:elevation="5dp"
@@ -18,24 +18,28 @@
 
         <ImageView
             android:id="@+id/back_btn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="12dp"
-            android:layout_marginTop="12dp"
             android:src="@drawable/ic_icon_left_outline"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
             android:text="회원가입"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             android:textColor="#000000"
-            android:textSize="30sp"
+            android:textSize="24dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent
+"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,14 +49,16 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/simple_info"
+            android:id="@+id/detail_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="34dp"
-            android:text="기본정보"
+            android:text="상세정보"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
+            android:textSize="24dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,9 +70,11 @@
             android:layout_marginTop="34dp"
             android:text="이름"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/simple_info" />
+            app:layout_constraintTop_toBottomOf="@id/detail_info" />
 
         <EditText
             android:id="@+id/user_name_input"
@@ -76,8 +84,11 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/sign_up_id_box"
             android:hint="이름을 입력해주세요"
+            android:textSize="14dp"
             android:inputType="text"
             android:paddingStart="10dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_name" />
 
@@ -87,12 +98,13 @@
             android:layout_width="55dp"
             android:layout_height="42dp"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="138dp"
             android:orientation="horizontal"
-            android:textColor="#EB5757"
+            android:textColor="#C4C4C4"
             android:text="남"
-            android:background="@drawable/gender_box"
-
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
+            android:background="@drawable/gender_uncheck"
             app:layout_constraintLeft_toRightOf="@id/user_name_input"
             app:layout_constraintTop_toTopOf="@+id/inner_position"/>
 
@@ -101,11 +113,13 @@
             android:layout_width="55dp"
             android:layout_height="42dp"
             android:layout_marginLeft="3dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="138dp"
             android:orientation="horizontal"
             android:text="여"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             android:textColor="#C4C4C4"
-            android:background="@drawable/gender_box"
+            android:background="@drawable/gender_uncheck"
             app:layout_constraintLeft_toRightOf="@id/Gender_male"
             app:layout_constraintTop_toTopOf="@+id/inner_position"/>
         
@@ -119,8 +133,10 @@
             android:layout_marginTop="34dp"
             android:layout_marginLeft="18dp"
             android:text="성별"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             app:layout_constraintLeft_toRightOf="@+id/user_name_input"
             app:layout_constraintBottom_toTopOf="@+id/Gender_male"
             />
@@ -134,7 +150,9 @@
             android:layout_marginTop="28dp"
             android:text="휴대폰 번호"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
+            android:textSize="14dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_name_input" />
 
@@ -147,6 +165,9 @@
             android:background="@drawable/sign_up_id_box"
             android:hint="핸드폰 번호를 입력해주세요"
             android:inputType="phone"
+            android:textSize="14dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             android:paddingStart="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_phone" />
@@ -159,7 +180,9 @@
             android:layout_marginTop="28dp"
             android:text="지점등록 (선택사항)"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_phone_input" />
 
@@ -172,6 +195,7 @@
             android:background="@drawable/region_box"
             android:inputType="phone"
             android:paddingStart="10dp"
+            android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/region" />
 
@@ -182,7 +206,9 @@
             android:text="지점검색"
             android:textColor="#ffffff"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="53dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             android:background="@drawable/sign_up_id_checkbox"
             app:layout_constraintTop_toBottomOf="@+id/user_phone_input"
             app:layout_constraintLeft_toRightOf="@id/user_region"
@@ -209,19 +235,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             app:layout_constraintLeft_toRightOf="@id/user_useinfo_checkbox"
             app:layout_constraintTop_toBottomOf="@id/user_region"
             />
 
         <Button
             android:layout_width="22dp"
-            android:layout_height="15dp"
+            android:layout_height="18dp"
             android:background="#00FFFFFF"
-            android:text="보기"
+            android:text="@string/sign_up_info_view"
             android:textSize="12dp"
             android:textColor="#EB5757"
             android:layout_marginTop="38dp"
             android:layout_marginLeft="4dp"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             app:layout_constraintLeft_toRightOf="@+id/text_useinfo"
             app:layout_constraintTop_toBottomOf="@+id/user_region"
             />
@@ -252,7 +282,7 @@
 
         <Button
             android:id="@+id/sign_up_last"
-            android:text="다음"
+            android:text="회원가입"
             android:textSize="18sp"
             android:background="@drawable/sign_up_button"
             android:textColor="#FFFFFF"
@@ -264,6 +294,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/notosanskrregular"
+            android:elegantTextHeight="true"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
