@@ -8,10 +8,10 @@ import retrofit2.http.*
 interface ApiService {
 
     @FormUrlEncoded
-    @POST("/api/login")
+    @POST("/members/")
     fun loginApi(
             // Input Data
-            @Field("id") id:String,
+            @Query("id") id:String,
             @Field("password") password:String
     ) : Call<LoginClass> // Get Data
 
