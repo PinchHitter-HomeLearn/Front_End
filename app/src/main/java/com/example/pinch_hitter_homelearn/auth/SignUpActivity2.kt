@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Checkable
 import android.widget.Toast
 import com.example.pinch_hitter_homelearn.R
+import com.example.pinch_hitter_homelearn.`interface`.ApiService
 import com.example.pinch_hitter_homelearn.`interface`.SignUpClass
 import kotlinx.android.synthetic.main.activity_sign_up2.*
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -17,6 +18,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class SignUpActivity2 : AppCompatActivity() {
 
@@ -59,7 +62,7 @@ class SignUpActivity2 : AppCompatActivity() {
             gender = "female"
         }
 
-        user_name_input.addTextChangedListener(object : TextWatcher{
+        user_name_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
 
@@ -75,7 +78,7 @@ class SignUpActivity2 : AppCompatActivity() {
             }
         })
 
-        user_phone_input.addTextChangedListener(object : TextWatcher{
+        user_phone_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
             }
 
@@ -92,45 +95,57 @@ class SignUpActivity2 : AppCompatActivity() {
         })
 
         user_useinfo_checkbox.setOnClickListener {
-            if(user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
+            if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
                 sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
             } else {
                 sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
             }
         }
 
-//        var role = JSONObject()
-//        role.put("id", 1)
-//
-//        if(user_email != null && id_check == true && user_password != null && pw_find_answer != null && user_name != null && birth_day != null && sex != null) {
-//            var gender = resources.getResourceEntryName(sex)
-//
-//            val memberObject = JSONObject()
-//            memberObject.put("loginId", email)
-//            memberObject.put("passWord", pw)
-//            memberObject.put("sns", "None")
-//            memberObject.put("name", name)
-//            memberObject.put("birthDay", birth)
-//            memberObject.put("sex", gender)
-//            memberObject.put("phone", phoneNum)
-//            memberObject.put("branchId", branch)
-//            memberObject.put("role", role)
-//
-//            println(memberObject)
-//
-//            apiconnect.signUpApi(memberObject, 1, pw_find_answer.text.toString()).enqueue(object : Callback<SignUpClass> {
-//                override fun onFailure(call: Call<SignUpClass>, t: Throwable) {
-//                    t.message?.let { it1 -> Log.d("DEBUG", it1)}
-//                    println("여기로 타는중")
-//                    Toast.makeText(applicationContext, "서버 통신 오류", Toast.LENGTH_SHORT).show()
-//                }
-//
-//                override fun onResponse(call: Call<SignUpClass>, response: Response<SignUpClass>) {
-//                    val result = response.body();
-//                    println("여기로 탐" + result)
-//                }
-//
-//            })
-//        }
+
+        sign_up_last.setOnClickListener {
+            if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
+                var username = user_name_input.text.toString()
+                var phone = user_phone.text.toString()
+                var user_question_num = user_question.toInt()
+
+
+                var userSignUpData = JSONObject()
+                var role = JSONObject()
+
+                userSignUpData.put("loginId", user_email)
+                userSignUpData.put("passWord", user_password)
+                userSignUpData.put("sns", "None")
+                userSignUpData.put("name", username)
+                userSignUpData.put("birthDay", 950701)
+                userSignUpData.put("sex", gender)
+                userSignUpData.put("phone", phone)
+                userSignUpData.put("branchId", 1)
+                role.put("id", 1)
+                userSignUpData.put("role", role)
+
+                apiconnect.signUpApi(userSignUpData, 1, user_answer).enqueue(object : Callback<SignUpClass> {
+                    override fun onFailure(call: Call<SignUpClass>, t: Throwable) {
+                        t.message?.let { it1 -> Log.d("DEBUG", it1) }
+                        println("여기로 타는중")
+                        Toast.makeText(applicationContext, "서버 통신 오류", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<SignUpClass>, response: Response<SignUpClass>) {
+                        val result = response.body();
+                        println("여기로 탐" + result)
+                    }
+                })
+            }
+        }
     }
+
+    // Declare an Retrofit object
+    val retrofit = Retrofit.Builder()
+            .baseUrl("http://54.180.187.111:7777")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+    // Connect Service
+    val apiconnect = retrofit.create(ApiService::class.java)
 }

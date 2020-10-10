@@ -164,15 +164,4 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-    // Declare an Retrofit object
-    val retrofit = Retrofit.Builder()
-            .baseUrl("http://54.180.187.111:7777")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-    // Connect Service
-    val apiconnect = retrofit.create(ApiService::class.java)
 }

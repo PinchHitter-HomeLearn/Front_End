@@ -11,19 +11,20 @@ data class LoginClass(
 )
 
 data class SignUpClass(
-    var id : String,
-    var loginId : String,
-    var passWord : String,
-    var sns : String,
-    var name : String,
-    var birthDay : String,
-    var sex : String,
-    var phone: String,
-    var branchId : String,
-    var role : JSONObject,
-    var profileImage : String,
-    var lastLoginDate : String,
-    var createdDate : String,
-    var updatedDate : String,
-    var deletedDate : String
+        var data : JSONObject
+//    var id : String,
+//    var loginId : String,
+//    var passWord : String,
+//    var sns : String,
+//    var name : String,
+//    var birthDay : String,
+//    var sex : String,
+//    var phone: String,
+//    var branchId : String,
+//    var role : JSONObject,
+//    var profileImage : String,
+//    var lastLoginDate : String,
+//    var createdDate : String,
+//    var updatedDate : String,
+//    var deletedDate : String
 )

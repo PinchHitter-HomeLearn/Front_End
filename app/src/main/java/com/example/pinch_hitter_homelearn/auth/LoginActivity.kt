@@ -25,6 +25,15 @@ class LoginActivity : AppCompatActivity() {
             val signUpIntent = Intent(this@LoginActivity, Find_PW_Activity::class.java)
             startActivity(signUpIntent)
         }
+
+        login_btn.setOnClickListener {
+            var user_email = input_id.text.toString()
+            var user_password = input_pw.text.toString()
+
+            if(user_email != null && user_password != null) {
+                apiconnect.loginApi(user_email, )
+            }
+        }
     }
 
     // Declare an Retrofit object
