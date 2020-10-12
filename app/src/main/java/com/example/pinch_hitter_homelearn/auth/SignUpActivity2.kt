@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.`interface`.ApiService
 import com.example.pinch_hitter_homelearn.`interface`.SignUpClass
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_sign_up2.*
 import kotlinx.android.synthetic.main.activity_signup.*
 import org.json.JSONObject
@@ -106,10 +107,10 @@ class SignUpActivity2 : AppCompatActivity() {
         sign_up_last.setOnClickListener {
             if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
                 var username = user_name_input.text.toString()
-                var phone = user_phone.text.toString()
+                var phone = user_phone_input.text.toString()
                 var user_question_num = user_question.toInt()
 
-
+                var SignUpData = JSONObject()
                 var userSignUpData = JSONObject()
                 var role = JSONObject()
 
@@ -124,7 +125,13 @@ class SignUpActivity2 : AppCompatActivity() {
                 role.put("id", 1)
                 userSignUpData.put("role", role)
 
-                apiconnect.signUpApi(userSignUpData, 1, user_answer).enqueue(object : Callback<SignUpClass> {
+                SignUpData.put("member", userSignUpData)
+                SignUpData.put("hintId", user_question_num)
+                SignUpData.put("answer", user_answer)
+
+                println(SignUpData)
+
+                apiconnect.signUpApi(SignUpData).enqueue(object : Callback<SignUpClass> {
                     override fun onFailure(call: Call<SignUpClass>, t: Throwable) {
                         t.message?.let { it1 -> Log.d("DEBUG", it1) }
                         println("여기로 타는중")
@@ -132,8 +139,9 @@ class SignUpActivity2 : AppCompatActivity() {
                     }
 
                     override fun onResponse(call: Call<SignUpClass>, response: Response<SignUpClass>) {
-                        val result = response.body();
-                        println("여기로 탐" + result)
+                        val result = response.body()
+
+                        println("여기로 탐" + result?.msg)
                     }
                 })
             }
