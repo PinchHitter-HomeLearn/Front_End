@@ -1,6 +1,7 @@
 package com.example.pinch_hitter_homelearn.auth
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -101,6 +102,11 @@ class SignUpActivity2 : AppCompatActivity() {
             } else {
                 sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
             }
+        }
+
+        sign_back_btn2.setOnClickListener {
+            var back = Intent(this@SignUpActivity2, SignUpActivity::class.java)
+            startActivity(back)
         }
 
 

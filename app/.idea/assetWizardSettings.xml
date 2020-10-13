@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="splash_title2" />
-                            <entry key="sourceFile" value="D:\wsg0701\Dev\Pinchhitter_Homelearn\svgfile\Group 54.svg" />
+                            <entry key="outputName" value="ic_position_btn" />
+                            <entry key="sourceFile" value="D:\wsg0701\Dev\Pinchhitter_Homelearn\svgfile\drawable\position_btn.svg" />
                           </map>
                         </option>
                       </PersistentState>
