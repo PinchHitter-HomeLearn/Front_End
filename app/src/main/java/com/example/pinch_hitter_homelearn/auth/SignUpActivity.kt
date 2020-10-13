@@ -140,6 +140,11 @@ class SignUpActivity : AppCompatActivity() {
             }
         })
 
+        sign_back_btn.setOnClickListener {
+            var back = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(back)
+        }
+
         next_btn.setOnClickListener {
             if(id_flag && pw_flag && pw_check_flag && answer_flag) {
                 var email = user_id_input.text.toString()

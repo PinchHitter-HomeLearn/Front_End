@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.pinch_hitter_homelearn.MainActivity
+import com.example.pinch_hitter_homelearn.main.MainActivity
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.`interface`.ApiService
 import com.example.pinch_hitter_homelearn.`interface`.LoginClass
