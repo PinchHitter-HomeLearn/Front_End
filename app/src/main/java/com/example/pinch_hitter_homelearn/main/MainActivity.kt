@@ -35,6 +35,10 @@ class MainActivity : AppCompatActivity() {
                 tabView.tab_logo.setImageResource(R.drawable.ic_position_btn)
                 return tabView
             }
+            "" -> {
+                tabView.tab_logo.setImageResource(R.drawable.ic_fab_btn)
+                return tabView
+            }
             "채팅·알림" -> {
                 tabView.tab_logo.setImageResource(R.drawable.ic_alarm_btn)
                 return tabView
@@ -54,6 +58,8 @@ class MainActivity : AppCompatActivity() {
         homeFragment.name = "홈런"
         val positionFragment = FragmentTab()
         positionFragment.name = "지역"
+        val findpersonFragment = FragmentTab()
+        findpersonFragment.name = ""
         val chatandalarmFragment = FragmentTab()
         chatandalarmFragment.name = "채팅·알림"
         val historyFragment = FragmentTab()
@@ -62,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = PageAdapter(supportFragmentManager)
         adapter.addItems(homeFragment)
         adapter.addItems(positionFragment)
+        adapter.addItems(findpersonFragment)
         adapter.addItems(chatandalarmFragment)
         adapter.addItems(historyFragment)
 
@@ -70,7 +77,8 @@ class MainActivity : AppCompatActivity() {
 
         main_tablayout.getTabAt(0)?.setCustomView(createView("홈런"))
         main_tablayout.getTabAt(1)?.setCustomView(createView("지역"))
-        main_tablayout.getTabAt(2)?.setCustomView(createView("채팅·알림"))
-        main_tablayout.getTabAt(3)?.setCustomView(createView("히스토리"))
+        main_tablayout.getTabAt(2)?.setCustomView(createView(""))
+        main_tablayout.getTabAt(3)?.setCustomView(createView("채팅·알림"))
+        main_tablayout.getTabAt(4)?.setCustomView(createView("히스토리"))
     }
 }
