@@ -15,12 +15,12 @@ interface ApiService {
     @FormUrlEncoded
     @POST("/members/{id}")
     fun loginApi(
-            // Input Data
-            @Path("id") id:String,
-            @Field("passWord") passWord:String
+        // Input Data
+        @Path("id") id:String,
+        @Field("passWord") passWord:String
     ) : Call<LoginClass> // Get Data
 
-//    @FormUrlEncoded
+    //    @FormUrlEncoded
     @POST("/api/question/members")
     fun signUpApi(
         @Body data :JSONObject
@@ -33,7 +33,7 @@ interface ApiService {
 //        @Field("phone") phone : String,
 //        @Field("branchId") branchId : Int,
 //        @Field("roleName") roleName : String,
-//        @Field("hintId") hintId : Int,                                 
+//        @Field("hintId") hintId : Int,
 //        @Field("answer") answer : String
     ) : Call<SignUpClass> // Get Data
 }

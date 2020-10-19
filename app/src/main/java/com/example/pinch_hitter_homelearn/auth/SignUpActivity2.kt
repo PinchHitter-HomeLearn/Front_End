@@ -119,7 +119,6 @@ class SignUpActivity2 : AppCompatActivity() {
                 var phone = user_phone_input.text.toString()
                 var user_question_num = user_question.toInt()
 
-
 //                val data = HashMap<String, String>()
 //
 //                data["loginId"] = user_email
@@ -148,6 +147,14 @@ class SignUpActivity2 : AppCompatActivity() {
                 userSignUpData.put("hintId", user_question_num)
                 userSignUpData.put("answer", user_answer)
 
+
+//                SignUpData.put("member", userSignUpData)
+//                SignUpData.put("hintId", user_question_num)
+//                SignUpData.put("answer", user_answer)
+
+                println(userSignUpData)
+
+
                 println(userSignUpData)
 //                 user_email, user_password, "None", username, "950701", gender, phone, 10, "employee", user_question_num, user_answer
                 apiconnect.signUpApi(userSignUpData).enqueue(object : Callback<SignUpClass> {
@@ -174,9 +181,9 @@ class SignUpActivity2 : AppCompatActivity() {
             .build()
 
 //    val retrofit = Retrofit.Builder()
-//        .baseUrl("http://3.35.40.128:8080")
-//        .addConverterFactory(GsonConverterFactory.create())
-//        .build()
+//            .baseUrl("http://3.35.40.128:8080")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
 
     // Connect Service
     val apiconnect = retrofit.create(ApiService::class.java)
