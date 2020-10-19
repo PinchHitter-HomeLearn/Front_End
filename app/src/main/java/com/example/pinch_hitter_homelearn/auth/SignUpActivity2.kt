@@ -116,28 +116,27 @@ class SignUpActivity2 : AppCompatActivity() {
                 var phone = user_phone_input.text.toString()
                 var user_question_num = user_question.toInt()
 
-                var SignUpData = JSONObject()
                 var userSignUpData = JSONObject()
-                var role = JSONObject()
 
                 userSignUpData.put("loginId", user_email)
                 userSignUpData.put("passWord", user_password)
                 userSignUpData.put("sns", "None")
                 userSignUpData.put("name", username)
-                userSignUpData.put("birthDay", 950701)
+                userSignUpData.put("birthDay", "950701")
                 userSignUpData.put("sex", gender)
                 userSignUpData.put("phone", phone)
-                userSignUpData.put("branchId", 1)
-                role.put("id", 1)
-                userSignUpData.put("role", role)
+                userSignUpData.put("branchId", 10)
+                userSignUpData.put("roleName", "employee")
+                userSignUpData.put("hintId", user_question_num)
+                userSignUpData.put("answer", user_answer)
 
-                SignUpData.put("member", userSignUpData)
-                SignUpData.put("hintId", user_question_num)
-                SignUpData.put("answer", user_answer)
+//                SignUpData.put("member", userSignUpData)
+//                SignUpData.put("hintId", user_question_num)
+//                SignUpData.put("answer", user_answer)
 
-                println(SignUpData)
+                println(userSignUpData)
 
-                apiconnect.signUpApi(SignUpData).enqueue(object : Callback<SignUpClass> {
+                apiconnect.signUpApi(userSignUpData).enqueue(object : Callback<SignUpClass> {
                     override fun onFailure(call: Call<SignUpClass>, t: Throwable) {
                         t.message?.let { it1 -> Log.d("DEBUG", it1) }
                         println("여기로 타는중")
@@ -159,6 +158,12 @@ class SignUpActivity2 : AppCompatActivity() {
             .baseUrl("http://54.180.187.111:7777")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+//    val retrofit = Retrofit.Builder()
+//            .baseUrl("http://3.35.40.128:8080")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+
 
     // Connect Service
     val apiconnect = retrofit.create(ApiService::class.java)
