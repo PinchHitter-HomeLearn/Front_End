@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.`interface`.ApiService
 import com.example.pinch_hitter_homelearn.`interface`.SignUpClass
+import com.google.gson.Gson
 import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_sign_up2.*
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -22,6 +23,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import kotlin.collections.HashMap
 
 class SignUpActivity2 : AppCompatActivity() {
 
@@ -116,28 +119,38 @@ class SignUpActivity2 : AppCompatActivity() {
                 var phone = user_phone_input.text.toString()
                 var user_question_num = user_question.toInt()
 
-                var SignUpData = JSONObject()
+
+//                val data = HashMap<String, String>()
+//
+//                data["loginId"] = user_email
+//                data["passWord"] = user_password
+//                data["sns"] = "None"
+//                data["name"] = username
+//                data["birthDay"] = "950701"
+//                data["sex"] = gender
+//                data["phone"] = phone
+//                data["branchId"] = "10"
+//                data["roleName"] = "employee"
+//                data["hintId"] = user_question_num.toString()
+//                data["answer"] = user_answer
+
                 var userSignUpData = JSONObject()
-                var role = JSONObject()
 
                 userSignUpData.put("loginId", user_email)
                 userSignUpData.put("passWord", user_password)
                 userSignUpData.put("sns", "None")
                 userSignUpData.put("name", username)
-                userSignUpData.put("birthDay", 950701)
+                userSignUpData.put("birthDay", "950701")
                 userSignUpData.put("sex", gender)
                 userSignUpData.put("phone", phone)
-                userSignUpData.put("branchId", 1)
-                role.put("id", 1)
-                userSignUpData.put("role", role)
+                userSignUpData.put("branchId", 10)
+                userSignUpData.put("roleName", "employee")
+                userSignUpData.put("hintId", user_question_num)
+                userSignUpData.put("answer", user_answer)
 
-                SignUpData.put("member", userSignUpData)
-                SignUpData.put("hintId", user_question_num)
-                SignUpData.put("answer", user_answer)
-
-                println(SignUpData)
-
-                apiconnect.signUpApi(SignUpData).enqueue(object : Callback<SignUpClass> {
+                println(userSignUpData)
+//                 user_email, user_password, "None", username, "950701", gender, phone, 10, "employee", user_question_num, user_answer
+                apiconnect.signUpApi(userSignUpData).enqueue(object : Callback<SignUpClass> {
                     override fun onFailure(call: Call<SignUpClass>, t: Throwable) {
                         t.message?.let { it1 -> Log.d("DEBUG", it1) }
                         println("여기로 타는중")
@@ -147,7 +160,7 @@ class SignUpActivity2 : AppCompatActivity() {
                     override fun onResponse(call: Call<SignUpClass>, response: Response<SignUpClass>) {
                         val result = response.body()
 
-                        println("여기로 탐" + result?.msg)
+                        println("여기로 탐" + result)
                     }
                 })
             }
@@ -159,6 +172,11 @@ class SignUpActivity2 : AppCompatActivity() {
             .baseUrl("http://54.180.187.111:7777")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+//    val retrofit = Retrofit.Builder()
+//        .baseUrl("http://3.35.40.128:8080")
+//        .addConverterFactory(GsonConverterFactory.create())
+//        .build()
 
     // Connect Service
     val apiconnect = retrofit.create(ApiService::class.java)
