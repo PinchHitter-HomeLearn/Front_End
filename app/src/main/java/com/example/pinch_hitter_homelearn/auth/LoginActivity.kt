@@ -42,8 +42,9 @@ class LoginActivity : AppCompatActivity() {
                 apiconnect.loginApi(user_email, user_password).enqueue(object : Callback<LoginClass> {
                     override fun onFailure(call: Call<LoginClass>, t: Throwable) {
                         t.message?.let { it1 -> Log.d("DEBUG", it1) }
-                        println("여기로 타는중")
+                        println("여기로 타는중"feature/Sang-Gyu
                         println(t)
+
                         Toast.makeText(applicationContext, "서버 통신 오류", Toast.LENGTH_SHORT).show()
                     }
 
