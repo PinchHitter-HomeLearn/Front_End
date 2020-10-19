@@ -6,16 +6,501 @@
     android:layout_height="match_parent"
     tools:context=".main.FindpersonFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="추가 페이지"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_top_Position"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:elevation="5dp"
+        android:background="#F9F9F9"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/main_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대타 구하기"
+            android:textSize="23dp"
+            android:textColor="#000000"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/notosanskrmedium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <TextView
+            android:text="@string/not"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#EB5757"
+            android:textSize="17dp"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/notosanskrregular"
+            android:layout_marginRight="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toBottomOf="@id/main_top_Position"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/market_info"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/eb57line"
+                    app:layout_constraintTop_toBottomOf="@id/main_top_Position"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/notosanskrmedium"
+                        android:elegantTextHeight="true"
+                        android:text="매장정보"
+                        android:textColor="#000000"
+                        android:layout_marginLeft="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/brandiconimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/brandicon"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="@+id/market_info"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/brand_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="브랜드"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:textColor="#878787"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/brandiconimg"
+                    app:layout_constraintTop_toTopOf="@id/market_info"/>
+
+                <TextView
+                    android:id="@+id/my_brand_name"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="나의 브랜드"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:elegantTextHeight="true"
+                    android:textColor="#000000"
+                    android:gravity="right"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginLeft="230dp"
+                    app:layout_constraintLeft_toRightOf="@+id/brandiconimg"
+                    app:layout_constraintTop_toTopOf="@id/market_info"/>
+
+                <ImageView
+                    android:id="@+id/regioniconimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/regionicon"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/brandiconimg"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/region_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지점 선택"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:elegantTextHeight="true"
+                    android:textColor="#878787"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/regioniconimg"
+                    app:layout_constraintTop_toTopOf="@id/brand_text"/>
+
+                <TextView
+                    android:id="@+id/my_region_name"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="나의 지점"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:elegantTextHeight="true"
+                    android:textColor="#000000"
+                    android:gravity="right"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="230dp"
+                    app:layout_constraintLeft_toRightOf="@+id/regioniconimg"
+                    app:layout_constraintTop_toTopOf="@id/my_brand_name"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recruit"
+                android:layout_width="match_parent"
+                android:layout_height="213dp"
+                app:layout_constraintTop_toBottomOf="@id/market_info"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/eb57line"
+                    app:layout_constraintTop_toBottomOf="@id/main_top_Position"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/notosanskrmedium"
+                        android:elegantTextHeight="true"
+                        android:text="매장정보"
+                        android:textColor="#000000"
+                        android:layout_marginLeft="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <ImageView
+                    android:id="@+id/peopleplusimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/peopleplusicon"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="@+id/recruit"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/peopleplus_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="모집인원"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:textColor="#878787"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/peopleplusimg"
+                    app:layout_constraintTop_toTopOf="@id/recruit"/>
+
+                <EditText
+                    android:id="@+id/my_people_recruit"
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/main_search_box"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:elegantTextHeight="true"
+                    android:textColor="#000000"
+                    android:gravity="right"
+                    android:hint="0"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="33dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="40dp"
+                    app:layout_constraintLeft_toRightOf="@+id/peopleplus_text"
+                    app:layout_constraintTop_toTopOf="@id/recruit"/>
+
+                <TextView
+                    android:text="명"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:elegantTextHeight ="true"
+                    android:textColor="#5E5E5E"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintRight_toRightOf="@id/my_people_recruit"
+                    app:layout_constraintTop_toTopOf="@id/recruit"/>
+
+                <ImageView
+                    android:id="@+id/gendericonimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/regionicon"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/peopleplusimg"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/gender_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성별"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:elegantTextHeight="true"
+                    android:textColor="#878787"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/peopleplusimg"
+                    app:layout_constraintTop_toTopOf="@id/peopleplus_text"/>
+
+                <CheckBox
+                    android:id="@+id/my_recruit_gender"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="21dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/sign_check_box"
+                    app:layout_constraintLeft_toRightOf="@+id/gender_text"
+                    app:layout_constraintTop_toBottomOf="@+id/peopleplus_text"
+                    />
+
+                <TextView
+                    android:id="@+id/gender_notcare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성별무관"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:textColor="#000000"
+                    android:elegantTextHeight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="14dp"
+                    app:layout_constraintLeft_toRightOf="@+id/my_recruit_gender"
+                    app:layout_constraintTop_toBottomOf="@+id/my_people_recruit"/>
+
+                <RadioGroup
+                    android:id="@+id/my_recruit_group"
+                    android:layout_width="135dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/gender_notcare"
+                    app:layout_constraintTop_toBottomOf="@+id/my_people_recruit">
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:text="남"
+                        android:layout_width="60dp"
+                        android:layout_height="35dp"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/female"
+                        android:text="여"
+                        android:layout_width="60dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                </RadioGroup>
+
+
+
+
+                <ImageView
+                    android:id="@+id/ageiconimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ageicon"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/gendericonimg"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/age_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연령"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:elegantTextHeight="true"
+                    android:textColor="#878787"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/gendericonimg"
+                    app:layout_constraintTop_toTopOf="@id/gender_text"/>
+
+                <CheckBox
+                    android:id="@+id/my_recruit_age"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="21dp"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/sign_check_box"
+                    app:layout_constraintLeft_toRightOf="@+id/gender_text"
+                    app:layout_constraintTop_toBottomOf="@+id/my_recruit_gender"
+                    />
+
+                <TextView
+                    android:id="@+id/age_nocare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연령무관"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/notosanskrregular"
+                    android:textColor="#000000"
+                    android:elegantTextHeight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="14dp"
+                    app:layout_constraintLeft_toRightOf="@+id/my_recruit_gender"
+                    app:layout_constraintTop_toBottomOf="@+id/gender_notcare"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/workinfo"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                app:layout_constraintTop_toBottomOf="@id/recruit"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/eb57line"
+                    app:layout_constraintTop_toBottomOf="@id/main_top_Position"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/notosanskrmedium"
+                        android:elegantTextHeight="true"
+                        android:text="매장정보"
+                        android:textColor="#000000"
+                        android:layout_marginLeft="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/work_date"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/peopleplusicon"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="@+id/workinfo"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/work_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근무날짜"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:textColor="#878787"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/work_date"
+                    app:layout_constraintTop_toTopOf="@id/workinfo"/>
+
+                <ImageView
+                    android:id="@+id/work_time"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/worktimeicon"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="@+id/work_date"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/work_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근무시간"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:textColor="#878787"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/work_date"
+                    app:layout_constraintTop_toTopOf="@id/work_date_text"/>
+
+                <ImageView
+                    android:id="@+id/work_pay"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/peopleplusicon"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="@+id/work_time"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/work_pay_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지급 금액"
+                    android:elegantTextHeight="true"
+                    android:fontFamily="@font/notosanskrmedium"
+                    android:textSize="17dp"
+                    android:textColor="#878787"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintLeft_toRightOf="@+id/work_date"
+                    app:layout_constraintTop_toTopOf="@id/work_time_text"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
