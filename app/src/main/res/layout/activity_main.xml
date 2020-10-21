@@ -10,7 +10,6 @@
         android:id="@+id/main_top_Position"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:elevation="5dp"
         android:background="#F9F9F9"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -53,6 +52,7 @@
             />
 
         <ImageView
+            android:id="@+id/my_info_btn"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="20dp"
@@ -85,6 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:tabGravity="fill"
         app:tabIndicatorColor="#EB5757"
+        app:tabIndicatorHeight="5dp"
         app:tabMode="fixed"
         />
 
