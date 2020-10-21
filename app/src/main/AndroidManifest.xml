@@ -13,16 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".main.FindpersonFragment"
-            tools:ignore="Instantiatable"></activity>
-        <activity android:name=".main.HistoryFragment"
-            tools:ignore="Instantiatable"></activity>
-        <activity android:name=".main.ChatAndAlarmFragment"
-            tools:ignore="Instantiatable"></activity>
-        <activity android:name=".main.PositionFragment"
-            tools:ignore="Instantiatable"></activity>
-        <activity android:name=".main.HomeFragment"
-            tools:ignore="Instantiatable"></activity>
+        <activity android:name=".auth.MyInfo"></activity>
+        <activity
+            android:name=".main.FindpersonFragment"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".main.HistoryFragment"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".main.ChatAndAlarmFragment"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".main.PositionFragment"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".main.HomeFragment"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".main.FragmentTab"
             tools:ignore="Instantiatable" />
@@ -30,15 +36,13 @@
         <activity android:name=".auth.Find_PW_Activity" />
         <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".auth.LoginActivity" />
-        <activity android:name=".splashActivity">
+        <activity android:name=".splashActivity"></activity>
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".main.MainActivity">
-
         </activity>
     </application>
 

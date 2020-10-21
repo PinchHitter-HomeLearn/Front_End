@@ -34,7 +34,6 @@ class SignUpActivity2 : AppCompatActivity() {
     var user_answer = ""
     var user_name_flag = false
     var user_phone_flag = false
-    var gender = ""
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,25 +46,6 @@ class SignUpActivity2 : AppCompatActivity() {
         user_question = intent.getStringExtra("question").toString()
         user_answer = intent.getStringExtra("findAnswer").toString()
 
-        Gender_male.setOnClickListener {
-            Gender_male.setBackgroundResource(R.drawable.gender_check)
-            Gender_male.setTextColor(Color.parseColor("#EB5757"))
-
-            Gender_female.setBackgroundResource(R.drawable.gender_uncheck)
-            Gender_female.setTextColor(Color.parseColor("#C4C4C4"))
-
-            gender = "male"
-        }
-
-        Gender_female.setOnClickListener {
-            Gender_male.setBackgroundResource(R.drawable.gender_uncheck)
-            Gender_male.setTextColor(Color.parseColor("#C4C4C4"))
-
-            Gender_female.setBackgroundResource(R.drawable.gender_check)
-            Gender_female.setTextColor(Color.parseColor("#EB5757"))
-
-            gender = "female"
-        }
 
         user_name_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -118,6 +98,8 @@ class SignUpActivity2 : AppCompatActivity() {
                 var username = user_name_input.text.toString()
                 var phone = user_phone_input.text.toString()
                 var user_question_num = user_question.toInt()
+                var getgender = gender_group.checkedRadioButtonId
+                var gender = resources.getResourceEntryName(getgender)
 
 //                val data = HashMap<String, String>()
 //

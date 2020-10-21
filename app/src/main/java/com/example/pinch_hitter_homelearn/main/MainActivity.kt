@@ -1,12 +1,14 @@
 package com.example.pinch_hitter_homelearn.main
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.adapter.PageAdapter
+import com.example.pinch_hitter_homelearn.auth.MyInfo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_tab_button.view.*
 
@@ -20,6 +22,11 @@ class MainActivity : AppCompatActivity() {
 
         mContext = applicationContext
         initViewPager()
+
+        my_info_btn.setOnClickListener {
+            val myInfoIntent = Intent(this@MainActivity,MyInfo::class.java);
+            startActivity(myInfoIntent);
+        }
     }
 
     private fun createView(tabName: String): View {
@@ -28,23 +35,19 @@ class MainActivity : AppCompatActivity() {
         tabView.tab_text.text = tabName
         when (tabName) {
             "홈런" -> {
-                tabView.tab_logo.setImageResource(R.drawable.ic_home_btn)
+                tabView.tab_logo.setImageResource(R.drawable.tabbar_home_btn)
                 return tabView
             }
             "지역" -> {
-                tabView.tab_logo.setImageResource(R.drawable.ic_position_btn)
-                return tabView
-            }
-            "" -> {
-                tabView.tab_logo.setImageResource(R.drawable.ic_fab_btn)
+                tabView.tab_logo.setImageResource(R.drawable.tabbar_position_btn)
                 return tabView
             }
             "채팅·알림" -> {
-                tabView.tab_logo.setImageResource(R.drawable.ic_alarm_btn)
+                tabView.tab_logo.setImageResource(R.drawable.tabbar_alarm_btn)
                 return tabView
             }
-            "히스토리" -> {
-                tabView.tab_logo.setImageResource(R.drawable.ic_history_btn)
+            "게시판" -> {
+                tabView.tab_logo.setImageResource(R.drawable.tabbar_board_btn)
                 return tabView
             }
             else -> {
@@ -58,17 +61,14 @@ class MainActivity : AppCompatActivity() {
         homeFragment.name = "홈런"
         val positionFragment = FragmentTab()
         positionFragment.name = "지역"
-        val findpersonFragment = FragmentTab()
-        findpersonFragment.name = ""
         val chatandalarmFragment = FragmentTab()
         chatandalarmFragment.name = "채팅·알림"
         val historyFragment = FragmentTab()
-        historyFragment.name = "히스토리"
+        historyFragment.name = "게시판"
 
         val adapter = PageAdapter(supportFragmentManager)
         adapter.addItems(homeFragment)
         adapter.addItems(positionFragment)
-        adapter.addItems(findpersonFragment)
         adapter.addItems(chatandalarmFragment)
         adapter.addItems(historyFragment)
 
@@ -77,8 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         main_tablayout.getTabAt(0)?.setCustomView(createView("홈런"))
         main_tablayout.getTabAt(1)?.setCustomView(createView("지역"))
-        main_tablayout.getTabAt(2)?.setCustomView(createView(""))
-        main_tablayout.getTabAt(3)?.setCustomView(createView("채팅·알림"))
-        main_tablayout.getTabAt(4)?.setCustomView(createView("히스토리"))
+        main_tablayout.getTabAt(2)?.setCustomView(createView("채팅·알림"))
+        main_tablayout.getTabAt(3)?.setCustomView(createView("게시판"))
     }
 }
