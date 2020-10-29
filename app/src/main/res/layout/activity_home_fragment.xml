@@ -11,68 +11,77 @@
         android:id="@+id/main_top_Position"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#F9F9F9"
+        android:background="#FFFFFF"
+        android:elevation="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <TextView
-            android:id="@+id/main_app_name"
+            android:id="@+id/my_brand_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="대타홈런"
-            android:textSize="23dp"
-            android:textColor="#EB5757"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp"
             android:elegantTextHeight="true"
             android:fontFamily="@font/notosanskrmedium"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="나의 브랜드"
+            android:textColor="#EB5757"
+            android:textSize="14dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="투썸플레이스"
+            android:textSize="24dp"
+            android:textColor="#000000"
+            android:elegantTextHeight="true"
+            android:fontFamily="@font/notosanskrbold"
+            app:layout_constraintTop_toBottomOf="@id/my_brand_text"
             app:layout_constraintLeft_toLeftOf="parent"
             />
 
-        <EditText
-            android:id="@+id/main_search_box"
-            android:layout_width="240dp"
+        <ImageView
+            android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="12dp"
-            android:background="@drawable/main_search_box"
-            app:layout_constraintLeft_toRightOf="@+id/main_app_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-        </EditText>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/lense"
+            android:src="@drawable/region_filter_icon"
+            android:layout_marginTop="18dp"
             android:layout_marginRight="10dp"
-            app:layout_constraintRight_toRightOf="@+id/main_search_box"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <ImageView
-            android:id="@+id/my_info_btn"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/my_info_img"
-            app:layout_constraintLeft_toRightOf="@+id/main_search_box"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="메인 페이지"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_inner_position"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:layout_marginTop="65dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_top_Position"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메인 페이지"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
