@@ -56,7 +56,7 @@ class SignUpActivity2 : AppCompatActivity() {
                     user_name_flag = true
                 }
 
-                if(user_name_flag && user_phone_flag && user_birth_flag) {
+                if(user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag && user_birth_flag) {
                     sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
                 } else {
                     sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
@@ -75,7 +75,7 @@ class SignUpActivity2 : AppCompatActivity() {
                     user_phone_flag = true
                 }
 
-                if(user_name_flag && user_phone_flag && user_birth_flag) {
+                if(user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag && user_birth_flag) {
                     sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
                 } else {
                     sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
@@ -94,18 +94,16 @@ class SignUpActivity2 : AppCompatActivity() {
                     user_birth_flag = true
                 }
 
-                if(user_name_flag && user_phone_flag && user_birth_flag) {
+                if(user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag && user_birth_flag) {
                     sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
                 } else {
                     sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
                 }
             }
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
         })
 
         user_useinfo_checkbox.setOnClickListener {
