@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.pinch_hitter_homelearn.R
 
-class FindpersonFragment : Fragment() {
+class ChattingFragment : Fragment() {
     override fun onCreateView(
-            Inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        Inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ) : View? {
-        return Inflater.inflate(R.layout.activity_findperson_fragment, container, false)
+        return Inflater.inflate(R.layout.activity_chatting_fragment, container, false)
     }
 }

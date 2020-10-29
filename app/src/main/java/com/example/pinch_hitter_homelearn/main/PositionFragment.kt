@@ -7,17 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.pinch_hitter_homelearn.R
-import kotlinx.android.synthetic.main.activity_fragment_tab.view.*
 
 class PositionFragment : Fragment() {
-    var name = ""
     override fun onCreateView(
             Inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ) : View? {
-        val view = Inflater.inflate(R.layout.activity_home_fragment, container, false)
-        view.textView.text = name
-
-        return view
+        return Inflater.inflate(R.layout.activity_position_fragment, container, false)
     }
 }
