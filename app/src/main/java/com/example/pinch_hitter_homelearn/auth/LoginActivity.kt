@@ -41,17 +41,20 @@ class LoginActivity : AppCompatActivity() {
             if(user_email != null && user_password != null) {
                 apiconnect.loginApi(user_email, user_password).enqueue(object : Callback<LoginClass> {
                     override fun onFailure(call: Call<LoginClass>, t: Throwable) {
-                        t.message?.let { it1 -> Log.d("DEBUG", it1) }
-                        println("여기로 타는중")
-                        println(t)
+//                        t.message?.let { it1 -> Log.d("DEBUG", it1) }
+//                        println("여기로 타는중")
+//                        println(t)
+                        var Intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(Intent)
 
-                        Toast.makeText(applicationContext, "서버 통신 오류", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(applicationContext, "서버 통신 오류", Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<LoginClass>, response: Response<LoginClass>) {
-                        val result = response.body();
-
-                        println(result)
+//                        val result = response.body();
+                            var Intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            startActivity(Intent)
+//                        println(result)
 //                        if(result?.msg == "success") {
 //                            var Intent = Intent(this@LoginActivity, MainActivity::class.java)
 //                            intent.putExtra("name", "아이디")

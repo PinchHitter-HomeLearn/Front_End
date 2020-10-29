@@ -7,14 +7,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".main.BoardFragment"></activity>
-        <activity android:name=".main.ChattingFragment" />
+        <activity android:name=".main.BoardFragment"
+            tools:ignore="Instantiatable"></activity>
+        <activity android:name=".main.ChattingFragment"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".main.FindpersonFragment"
             tools:ignore="Instantiatable" />
@@ -27,20 +29,18 @@
         <activity
             android:name=".main.HomeFragment"
             tools:ignore="Instantiatable" />
-        <activity
-            android:name=".main.FragmentTab"
-            tools:ignore="Instantiatable" />
         <activity android:name=".auth.SignUpActivity2" />
         <activity android:name=".auth.Find_PW_Activity" />
         <activity android:name=".auth.SignUpActivity" />
         <activity android:name=".auth.LoginActivity" />
-        <activity android:name=".splashActivity" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".splashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".main.MainActivity">
         </activity>
     </application>
 
