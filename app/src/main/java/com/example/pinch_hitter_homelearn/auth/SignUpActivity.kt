@@ -52,15 +52,9 @@ class SignUpActivity : AppCompatActivity() {
 
         user_id_input.addTextChangedListener( object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-                if (count == 0) {
+                if (p0.toString()?.length == 0) {
                     id_flag = false
-                } else if (count > 0) {
+                } else if (p0.toString()?.length > 0 ) {
                     id_flag = true
                 }
 
@@ -70,19 +64,16 @@ class SignUpActivity : AppCompatActivity() {
                     next_btn.setBackgroundResource(R.drawable.sign_up_button)
                 }
             }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
         })
 
         user_pw_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-                if (count == 0) {
+                if (p0.toString()?.length == 0) {
                     pw_flag = false
-                } else if (count > 0) {
+                } else if (p0.toString()?.length > 0 ) {
                     pw_flag = true
                 }
 
@@ -92,20 +83,16 @@ class SignUpActivity : AppCompatActivity() {
                     next_btn.setBackgroundResource(R.drawable.sign_up_button)
                 }
             }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
 
         })
 
         user_pw_input_check.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-                if (count == 0) {
+                if (p0.toString()?.length == 0) {
                     pw_check_flag = false
-                } else if (count > 0) {
+                } else if (p0.toString()?.length > 0 ) {
                     pw_check_flag = true
                 }
 
@@ -116,19 +103,16 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
+
         })
 
         pw_find_answer.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-                if (count == 0) {
+                if (p0.toString()?.length == 0) {
                     answer_flag = false
-                } else if (count > 0) {
+                } else if (p0.toString()?.length > 0 ) {
                     answer_flag = true
                 }
 
@@ -138,6 +122,9 @@ class SignUpActivity : AppCompatActivity() {
                     next_btn.setBackgroundResource(R.drawable.sign_up_button)
                 }
             }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
         })
 
         sign_back_btn.setOnClickListener {

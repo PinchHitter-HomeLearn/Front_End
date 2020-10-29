@@ -28,12 +28,13 @@ import kotlin.collections.HashMap
 
 class SignUpActivity2 : AppCompatActivity() {
 
-    var user_email = ""
-    var user_password = ""
-    var user_question = ""
-    var user_answer = ""
+    var userEmail = ""
+    var userPassword = ""
+    var userQuestion = ""
+    var userAnswer = ""
     var user_name_flag = false
     var user_phone_flag = false
+    var user_birth_flag = false
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,46 +42,74 @@ class SignUpActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up2)
 
 
-        user_email = intent.getStringExtra("email").toString()
-        user_password = intent.getStringExtra("pw").toString()
-        user_question = intent.getStringExtra("question").toString()
-        user_answer = intent.getStringExtra("findAnswer").toString()
+        userEmail = intent.getStringExtra("email").toString()
+        userPassword = intent.getStringExtra("pw").toString()
+        userQuestion = intent.getStringExtra("question").toString()
+        userAnswer = intent.getStringExtra("findAnswer").toString()
 
 
         user_name_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-                if (count == 0) {
+                if (p0.toString()?.length == 0) {
                     user_name_flag = false
-                } else if (count > 0) {
+                } else if (p0.toString()?.length > 0 ) {
                     user_name_flag = true
                 }
+
+                if(user_name_flag && user_phone_flag && user_birth_flag) {
+                    sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
+                } else {
+                    sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
+                }
             }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
         })
 
         user_phone_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString()?.length == 0) {
+                    user_phone_flag = false
+                } else if (p0.toString()?.length > 0 ) {
+                    user_phone_flag = true
+                }
+
+                if(user_name_flag && user_phone_flag && user_birth_flag) {
+                    sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
+                } else {
+                    sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {}
+        })
+
+        user_birth_input.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString()?.length == 0) {
+                    user_birth_flag = false
+                } else if (p0.toString()?.length > 0 ) {
+                    user_birth_flag = true
+                }
+
+                if(user_name_flag && user_phone_flag && user_birth_flag) {
+                    sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
+                } else {
+                    sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
+                }
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, count: Int) {
-                if (count == 0) {
-                    user_phone_flag = false
-                } else if (count > 0) {
-                    user_phone_flag = true
-                }
             }
         })
 
         user_useinfo_checkbox.setOnClickListener {
-            if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
+            if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag && user_birth_flag) {
                 sign_up_last.setBackgroundResource(R.drawable.sign_up_button2)
             } else {
                 sign_up_last.setBackgroundResource(R.drawable.sign_up_button)
@@ -94,12 +123,13 @@ class SignUpActivity2 : AppCompatActivity() {
 
 
         sign_up_last.setOnClickListener {
-            if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag) {
-                var username = user_name_input.text.toString()
-                var phone = user_phone_input.text.toString()
-                var user_question_num = user_question.toInt()
-                var getgender = gender_group.checkedRadioButtonId
-                var gender = resources.getResourceEntryName(getgender)
+            if (user_useinfo_checkbox.isChecked && user_name_flag && user_phone_flag && user_birth_flag) {
+                var userName = user_name_input.text.toString()
+                var userPhone = user_phone_input.text.toString()
+                var userQuestionNum = userQuestion.toInt()
+                var userBirth = user_birth_input.text.toString()
+                var getGender = gender_group.checkedRadioButtonId
+                var gender = resources.getResourceEntryName(getGender)
 
 //                val data = HashMap<String, String>()
 //
@@ -117,17 +147,17 @@ class SignUpActivity2 : AppCompatActivity() {
 
                 var userSignUpData = JSONObject()
 
-                userSignUpData.put("loginId", user_email)
-                userSignUpData.put("passWord", user_password)
+                userSignUpData.put("loginId", userEmail)
+                userSignUpData.put("passWord", userPassword)
                 userSignUpData.put("sns", "None")
-                userSignUpData.put("name", username)
-                userSignUpData.put("birthDay", "950701")
+                userSignUpData.put("name", userName)
+                userSignUpData.put("birthDay", userBirth)
                 userSignUpData.put("sex", gender)
-                userSignUpData.put("phone", phone)
+                userSignUpData.put("phone", userPhone)
                 userSignUpData.put("branchId", 10)
                 userSignUpData.put("roleName", "employee")
-                userSignUpData.put("hintId", user_question_num)
-                userSignUpData.put("answer", user_answer)
+                userSignUpData.put("hintId", userQuestionNum)
+                userSignUpData.put("answer", userAnswer)
 
 
 //                SignUpData.put("member", userSignUpData)
@@ -136,8 +166,6 @@ class SignUpActivity2 : AppCompatActivity() {
 
                 println(userSignUpData)
 
-
-                println(userSignUpData)
 //                 user_email, user_password, "None", username, "950701", gender, phone, 10, "employee", user_question_num, user_answer
                 apiconnect.signUpApi(userSignUpData).enqueue(object : Callback<SignUpClass> {
                     override fun onFailure(call: Call<SignUpClass>, t: Throwable) {

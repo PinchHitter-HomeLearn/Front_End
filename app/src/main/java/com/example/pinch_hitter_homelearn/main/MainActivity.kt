@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.adapter.PageAdapter
-import com.example.pinch_hitter_homelearn.auth.MyInfo
+import com.example.pinch_hitter_homelearn.auth.MyinfoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_tab_button.view.*
 
@@ -23,10 +23,6 @@ class MainActivity : AppCompatActivity() {
         mContext = applicationContext
         initViewPager()
 
-        my_info_btn.setOnClickListener {
-            val myInfoIntent = Intent(this@MainActivity,MyInfo::class.java);
-            startActivity(myInfoIntent);
-        }
     }
 
     private fun createView(tabName: String): View {
@@ -42,12 +38,16 @@ class MainActivity : AppCompatActivity() {
                 tabView.tab_logo.setImageResource(R.drawable.tabbar_position_btn)
                 return tabView
             }
-            "채팅·알림" -> {
-                tabView.tab_logo.setImageResource(R.drawable.tabbar_alarm_btn)
-                return tabView
-            }
             "게시판" -> {
                 tabView.tab_logo.setImageResource(R.drawable.tabbar_board_btn)
+                return tabView
+            }
+            "채팅" -> {
+                tabView.tab_logo.setImageResource(R.drawable.tabbar_chat_btn)
+                return tabView
+            }
+            "내정보" -> {
+                tabView.tab_logo.setImageResource(R.drawable.tabbar_myinfo_btn)
                 return tabView
             }
             else -> {
@@ -57,27 +57,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewPager() {
-        val homeFragment = FragmentTab()
-        homeFragment.name = "홈런"
-        val positionFragment = FragmentTab()
-        positionFragment.name = "지역"
-        val chatandalarmFragment = FragmentTab()
-        chatandalarmFragment.name = "채팅·알림"
-        val historyFragment = FragmentTab()
-        historyFragment.name = "게시판"
 
         val adapter = PageAdapter(supportFragmentManager)
-        adapter.addItems(homeFragment)
-        adapter.addItems(positionFragment)
-        adapter.addItems(chatandalarmFragment)
-        adapter.addItems(historyFragment)
-
         main_viewPager.adapter = adapter
+
         main_tablayout.setupWithViewPager(main_viewPager)
 
         main_tablayout.getTabAt(0)?.setCustomView(createView("홈런"))
         main_tablayout.getTabAt(1)?.setCustomView(createView("지역"))
-        main_tablayout.getTabAt(2)?.setCustomView(createView("채팅·알림"))
-        main_tablayout.getTabAt(3)?.setCustomView(createView("게시판"))
+        main_tablayout.getTabAt(2)?.setCustomView(createView("게시판"))
+        main_tablayout.getTabAt(3)?.setCustomView(createView("채팅"))
+        main_tablayout.getTabAt(4)?.setCustomView(createView("내정보"))
     }
 }
