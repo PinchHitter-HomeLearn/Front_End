@@ -9,9 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.`interface`.AlbaCard
+import com.example.pinch_hitter_homelearn.main.HomeFragment
 import kotlinx.android.synthetic.main.main_list_item_custom.view.*
 
-class AlbaCardAdapter(val context: Context, val albaCard: List<AlbaCard>, var clickListener: ItemClickListener)
+class AlbaCardAdapter(val context : Context, val albaCard: ArrayList<AlbaCard>
+//                      , var clickListener: ItemClickListener
+)
     :RecyclerView.Adapter<AlbaCardAdapter.AlbaListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): AlbaListViewHolder {
@@ -25,7 +28,9 @@ class AlbaCardAdapter(val context: Context, val albaCard: List<AlbaCard>, var cl
 
     override fun onBindViewHolder(holder: AlbaListViewHolder, position: Int) {
 
-        holder.init(albaCard.get(position), clickListener)
+        holder.init(albaCard.get(position)
+//            , clickListener
+        )
     }
 
 
@@ -39,24 +44,26 @@ class AlbaCardAdapter(val context: Context, val albaCard: List<AlbaCard>, var cl
         val alba_money_type : TextView = itemView.main_list_money_type
         val alba_money : TextView = itemView.main_list_money
 
-        fun init( item : AlbaCard, action: ItemClickListener) {
+        fun init( item : AlbaCard
+//                  ,action: ItemClickListener
+        ) {
 
             alba_condition.text = item.alba_condition
             alba_region.text = item.alba_region
-            alba_like.tag
+            alba_like.setImageResource(item.alba_like)
             alba_title.text = item.alba_title
             alba_date.text = item.alba_date
             alba_time.text = item.alba_time
             alba_money_type.text= item.alba_money_type
             alba_money.text =item.alba_money
 
-            itemView.setOnClickListener{
-                action.onClick(item, adapterPosition)
-            }
+//            itemView.setOnClickListener{
+//                action.onClick(item, adapterPosition)
+//            }
         }
     }
 
-    interface ItemClickListener {
-        fun onClick(view: AlbaCard, position: Int)
-    }
+//    interface ItemClickListener {
+//        fun onClick(view: AlbaCard, position: Int)
+//    }
 }

@@ -9,7 +9,7 @@ data class AlbaCard (
     @SerializedName("alba_region")
     val alba_region : String,
     @SerializedName("alba_like")
-    val alba_like : Drawable,
+    val alba_like : Int,
     @SerializedName("alba_title")
     val alba_title : String,
     @SerializedName("alba_date")
