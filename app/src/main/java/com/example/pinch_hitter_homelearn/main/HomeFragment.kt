@@ -1,6 +1,5 @@
 package com.example.pinch_hitter_homelearn.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,7 @@ import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.`interface`.AlbaCard
 import com.example.pinch_hitter_homelearn.adapter.AlbaCardAdapter
 import kotlinx.android.synthetic.main.activity_home_fragment.*
+
 
 class HomeFragment : Fragment() {
 
@@ -30,7 +30,6 @@ class HomeFragment : Fragment() {
         recyclerView = rootView.findViewById(R.id.albaRecyclerView) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = AlbaCardAdapter(requireContext(), albaList)
-
 
         fun onClick(view: AlbaCard, position: Int) {
             println(position)
