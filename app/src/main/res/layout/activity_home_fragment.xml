@@ -101,7 +101,7 @@
             android:textColor="#000000"
             android:fontFamily="@font/notosanskrmedium"
             android:textSize="19dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="7dp"
             android:layout_marginLeft="5dp"
             app:layout_constraintLeft_toRightOf="@+id/fast_recruit_icon"
             app:layout_constraintTop_toTopOf="parent"
@@ -129,7 +129,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
