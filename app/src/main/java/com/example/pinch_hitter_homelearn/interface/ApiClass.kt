@@ -29,6 +29,6 @@ data class LoginClass(
 )
 
 data class SignUpClass(
-        @SerializedName("msg")
+//        @SerializedName("msg")
         val result : JSONObject
 )

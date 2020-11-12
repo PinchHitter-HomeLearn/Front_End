@@ -138,7 +138,9 @@ class SignUpActivity : AppCompatActivity() {
                 var pw = user_pw_input.text.toString()
                 var pw_check = user_pw_input_check.text.toString()
                 find_question = pw_find_question_choice.selectedItemPosition.toString()
-                find_question = find_question + 1
+                var find_question_num = find_question.toInt()
+                    find_question_num += 2
+                var find_question_string = find_question_num.toString()
                 var find_answer = pw_find_answer.text.toString()
 
                 if( pw == pw_check) {
@@ -146,7 +148,7 @@ class SignUpActivity : AppCompatActivity() {
                         val intent = Intent(this@SignUpActivity, SignUpActivity2::class.java)
                         intent.putExtra("email", email)
                         intent.putExtra("pw", pw)
-                        intent.putExtra("question", find_question)
+                        intent.putExtra("question", find_question_string)
                         intent.putExtra("findAnswer", find_answer)
                         startActivity(intent)
                     }
