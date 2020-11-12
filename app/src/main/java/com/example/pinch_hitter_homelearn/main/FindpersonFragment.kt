@@ -13,6 +13,7 @@ class FindpersonFragment : Fragment() {
             Inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ) : View? {
+
         return Inflater.inflate(R.layout.activity_findperson_fragment, container, false)
     }
 }

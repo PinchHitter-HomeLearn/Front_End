@@ -1,16 +1,17 @@
 package com.example.pinch_hitter_homelearn.main
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnTouchListener
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pinch_hitter_homelearn.R
 import com.example.pinch_hitter_homelearn.adapter.PageAdapter
-import com.example.pinch_hitter_homelearn.auth.MyinfoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_tab_button.view.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,12 +57,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun initViewPager() {
 
         val adapter = PageAdapter(supportFragmentManager)
         main_viewPager.adapter = adapter
 
         main_tablayout.setupWithViewPager(main_viewPager)
+
+        main_viewPager.setOnTouchListener(OnTouchListener { arg0, arg1 -> true })
 
         main_tablayout.getTabAt(0)?.setCustomView(createView("홈런"))
         main_tablayout.getTabAt(1)?.setCustomView(createView("지역"))

@@ -111,7 +111,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="20dp"
             android:src="@drawable/twosomeicon"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
